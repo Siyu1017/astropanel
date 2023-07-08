@@ -1,0 +1,70 @@
+.Title{
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.SubTitle{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.Buttons {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .Button {
+    flex: 1;
+    color: rgb(var(--fg-1));
+
+    cursor: pointer;
+    justify-content: center;
+    padding: .6em;
+
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+
+    align-items: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+
+    user-select: none;
+
+    background-color: rgb(var(--bg-componets));
+
+    &:hover {
+      background-color: rgb(var(--bg-componets-2));
+    }
+  }
+}
+
+.Form{
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--bg-componets));
+  padding: 1rem;
+  border-radius: 10px;
+
+  gap: .5em;
+
+  .Title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+.Button {
+  width: 100%;
+  transition: .2s linear;
+  &:hover{
+    background-color: rgba(var(--bg-componets-2), 0.8);
+  }
+  &:active{
+    background-color: rgb(var(--bg-componets-2));
+  }
+}

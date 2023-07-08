@@ -1,0 +1,78 @@
+.main {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  & > *:not(:first-child) {
+    margin-top: 3rem;
+  }
+}
+
+.Hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem;
+  width: 100vw;
+  height: 100vh;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  .TopTitle{
+    position: absolute;
+    top: 2rem;
+    font-size: 3rem;
+
+    background: linear-gradient(120deg,
+            #ff5900,
+            #ff009e 25%,
+            #00caff 50%,
+            #ffe800 55%,
+            #66ff00 60%,
+            #8800ff 80%,
+            #ff0035 95%,
+            #ff5a00);
+    /* 文字颜色填充设置为透明 */
+    -webkit-text-fill-color: transparent;
+    /* 背景裁剪，即让文字使用背景色 */
+    -webkit-background-clip: text;
+    /* 背景图放大一下，看着柔和一些 */
+    -webkit-background-size: 200% 100%;
+  }
+
+  .Title {
+    font-size: 6rem;
+    color: white;
+  }
+
+  .Buttons {
+    display: flex;
+    gap: .5rem;
+    margin-top: 1rem;
+    a {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .Hero {
+    .Title, .Title2 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 1080px) {
+  .Hero {
+    flex-direction: column;
+
+    .Title {
+      margin-right: 0;
+    }
+  }
+}

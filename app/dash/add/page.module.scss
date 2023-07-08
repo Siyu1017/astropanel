@@ -1,0 +1,42 @@
+.Title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.Container {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  .Form{
+    display: flex;
+    flex-direction: column;
+    background: rgb(var(--bg-componets));
+    padding: 1rem;
+    border-radius: 10px;
+
+    gap: .5em;
+
+    .Title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+
+  .Button {
+    width: 100%;
+    transition: .2s linear;
+    &:hover{
+      background-color: rgba(var(--bg-componets-2), 0.8);
+    }
+    &:active{
+      background-color: rgb(var(--bg-componets-2));
+    }
+  }
+}

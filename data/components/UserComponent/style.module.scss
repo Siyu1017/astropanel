@@ -1,0 +1,84 @@
+.User {
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.PopupMenu {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 3.5rem;
+  width: 220px;
+  cursor: default;
+  padding: 6px 0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 32px 0;
+  background-color: rgba(var(--bg-componets), 0.8);
+  backdrop-filter: blur(10px);
+
+  .List {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    hr{
+      margin: .5rem;
+    }
+
+    .UserItem {
+      gap: 1rem;
+      .User {
+        display: flex;
+        align-items: center;
+        padding: .5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-size: cover;
+      }
+
+      .Info {
+        display: flex;
+        flex-direction: column;
+
+        .Name {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .Item {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: .5rem;
+      cursor: pointer;
+
+      .Name {
+        font-size: 1.5rem;
+      }
+
+      .icon {
+        font-size: 1.2rem;
+        user-select: none;
+      }
+
+      &:hover {
+        background-color: rgba(var(--bg-componets-2), 0.8);
+      }
+
+      &[disabled] {
+        cursor: not-allowed;
+      }
+    }
+
+  }
+}

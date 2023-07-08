@@ -1,0 +1,11 @@
+$transition-duration: .5s;
+$transition-delay: 0s;
+$transition-timing-function: cubic-bezier(0, .5, 0, 1);
+
+@function Transition($duration : $transition-duration, $delay: $transition-delay, $timing-function : $transition-timing-function) {
+  @return $duration $timing-function $delay;
+}
+
+$cubic-bezier-1: cubic-bezier(0, 1, 0, 1);
+$cubic-bezier-2: cubic-bezier(1, 0, 0, 1);
+$cubic-bezier-3: cubic-bezier(0, 1, 1, 0);

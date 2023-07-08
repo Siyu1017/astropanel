@@ -1,0 +1,36 @@
+.Container {
+  background-color: rgb(var(--bg-componets));
+  padding: 2rem;
+  border-radius: 10px;
+  display: flex;
+  min-width: 10rem;
+
+  .Avatar {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+  }
+
+  .About {
+    justify-content: center;
+    margin-left: 1rem;
+    overflow-wrap: anywhere;
+
+
+    .Name {
+      display: flex;
+      font-size: 2.5rem;
+    }
+
+    .UName {
+    }
+
+    .AboutMe {
+      font-size: 1.2rem;
+    }
+
+    hr{
+      margin: .5rem 0;
+    }
+  }
+}

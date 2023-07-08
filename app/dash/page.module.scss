@@ -1,0 +1,67 @@
+.Title{
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.Stats{
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+
+  &>* {
+    flex: 1;
+  }
+}
+
+.Servers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .List {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.User {
+  background-color: rgb(var(--bg-componets));
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  gap: 1rem;
+
+  .Button{
+    &:hover{
+      background-color: rgba(var(--bg-componets-2), 0.8);
+    }
+
+    &:active{
+      background-color: rgb(var(--bg-componets-2));
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .Stats{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .Stats{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}

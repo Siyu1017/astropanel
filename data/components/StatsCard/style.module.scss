@@ -1,0 +1,30 @@
+.StatusCard {
+  position: relative;
+  display: flex;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgb(var(--bg-componets));
+
+  .stats {
+    .Name {
+      font-size: 2rem;
+    }
+
+    .Used {
+      font-size: 1.2rem;
+    }
+  }
+
+  .Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(var(--bg-componets-2));
+    fill: rgb(var(--fg-1));
+    border-radius: 50%;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,27 @@
+.Container {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  border-top: 2px solid white;
+
+  padding: 2rem;
+  margin-top: 5rem;
+
+  background-color: rgb(var(--bg-componets-2));
+
+  .Links{
+    .link:not(:last-child){
+      border-right: 2px solid white;
+      padding-right: .3rem;
+      margin-right: .3rem;
+    }
+  }
+  .About{
+    display: none;
+  }
+  .Copyright{
+    cursor: default;
+  }
+}

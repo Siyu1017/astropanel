@@ -1,0 +1,90 @@
+#HoverTips {
+  position: absolute;
+
+  overflow: hidden;
+
+  color: black;
+
+  width: 0;
+  height: 0;
+
+  background-color: rgba(var(--bg-hover-tips), 0.4);
+  backdrop-filter: blur(10px);
+  padding: 0;
+
+  outline: white 0 solid;
+
+  opacity: 0;
+
+  transition: all 0.5s cubic-bezier(0, 0.5, 0, 1),
+              outline-width 0.1s linear,
+              left 0s,
+              top 0s;
+
+  z-index: 999999;
+
+  &.active {
+    opacity: 1;
+
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &.noupdate {
+    outline: black 5px solid;
+  }
+
+  #TipsInner {
+    position: absolute;
+    max-width: 33vw;
+    max-height: 33vh;
+    overflow: auto;
+    white-space: nowrap;
+
+    .title {
+      color: black;
+      font-size: 1.5rem;
+    }
+  }
+
+  #tipsMore {
+    display: none;
+
+    white-space: nowrap;
+
+    color: black;
+
+    &.active {
+      display: block;
+      border-top: 2px black solid;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #HoverTips {
+    background-color: rgba(var(--bg-hover-tips), 0.4);
+
+    outline: white 0 solid;
+
+    &.active {
+    }
+
+    &.noupdate {
+      outline: white 5px solid;
+    }
+
+    #TipsInner {
+      .title {
+        color: white;
+      }
+    }
+
+    #tipsMore {
+      color: white;
+      &.active {
+        border-top: 2px white solid;
+      }
+    }
+  }
+}
