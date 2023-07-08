@@ -3,6 +3,21 @@ import styles from './page.module.scss'
 import {motion} from "framer-motion";
 import Navbar from "@/data/components/Navbar";
 import TextInput from "@/data/components/Input";
+import SelectInput from "@/data/components/SelectInput";
+
+const types = [
+    {'value':'python', 'text':'Python'},
+    {'value':'nodejs', 'text':'Node.JS'},
+    {'value':'web', 'text':'WebHost'},
+    {'value':'rust', 'text':'Rust'},
+    {'value':'minecraft', 'text':'Minecraft'},
+]
+
+const nodes = [
+    {'value':'1', 'text':'node1'},
+    {'value':'2', 'text':'node2'},
+    {'value':'3', 'text':'node3'},
+]
 
 export default function Dash() {
 
@@ -13,9 +28,9 @@ export default function Dash() {
                 <div className={styles.Title}>名稱:</div>
                 <TextInput placeholder={'server'}></TextInput>
                 <div className={styles.Title}>伺服器類型:</div>
-                <TextInput></TextInput>
+                <SelectInput options={types}></SelectInput>
                 <div className={styles.Title}>節點:</div>
-                <TextInput></TextInput>
+                <SelectInput options={nodes}></SelectInput>
                 <div placeholder={'us-1'} className={styles.Title}>CPU:(%)</div>
                 <TextInput placeholder={'0 %'} type={'number'}></TextInput>
                 <div className={styles.Title}>記憶體:(mb)</div>
