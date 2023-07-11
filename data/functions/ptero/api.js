@@ -1,18 +1,19 @@
 import {promises as fs} from 'fs';
 import path from 'path';
-import {get_user_data} from "@/public/auth/auth";
+import {get_user_data} from "@/data/functions/auth/auth";
 import fetch from "node-fetch";
 import * as config from "./data/config";
 
 //local
-const usersDirectory = path.join('public', 'ptero', 'data', 'users');
+const usersDirectory = path.join('data', 'functions', 'ptero', 'data', 'users');
 
-async function create_local_user() {
+async function create_local_user(password) {
     const user = await get_user_data()
     const data = {
         "name": user.name,
         "dcid": user.id.toString(),
-        "pteroid": await find_user(user.email),
+        "pteroid": 1,
+        // "pteroid": await find_user(user.email),
         "email": user.email,
         "res": {
             "servers": 2,
@@ -23,6 +24,19 @@ async function create_local_user() {
     }
     //Read the json data file data.json
     const fileContents = await fs.writeFile(usersDirectory + `/${user.id}.json`, JSON.stringify(data));
+    return fileContents
+}
+
+async function find_local_user(id) {
+    //Read the json data file data.json
+    const fileContents = JSON.parse(await fs.readFile(usersDirectory + `/${id}.json`));
+    return fileContents
+}
+
+async function get_local_user_data() {
+    const user = await get_user_data()
+    //Read the json data file data.json
+    const fileContents = JSON.parse(await fs.readFile(usersDirectory + `/${user.id}.json`));
     return fileContents
 }
 
@@ -68,11 +82,12 @@ async function find_user(email) {
         }
     )
 
+    if (uid == null) {
+        const user_data = await get_user_data()
+        uid = await create_user(user_data.email, user_data.username).id
+    }
+
     return uid
-}
-
-async function get_user_server(){
-
 }
 
 async function get_all_user() {
@@ -85,6 +100,10 @@ async function get_all_user() {
         }
     });
     return resp.json()
+}
+
+async function get_user_server() {
+
 }
 
 function makeid(length) {
@@ -103,5 +122,7 @@ function makeid(length) {
 export {
     create_user,
     create_local_user,
-    find_user
+    find_user,
+    find_local_user,
+    get_local_user_data
 }

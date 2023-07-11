@@ -1,10 +1,6 @@
 'use server'
-import { cookies } from 'next/headers'
 import React from 'react'
-import fetch from 'node-fetch';
-import {NextResponse} from "next/server";
-import * as config from '@/public/auth/config';
-import {get_user_data, logout} from "@/public/auth/auth";
+import {get_user_data, logout} from "@/data/functions/auth/auth";
 import {redirect} from "next/navigation";
 
 export async function GET(req) {
