@@ -1,28 +1,29 @@
 "use client"
 import styles from './page.module.scss'
-import {AnimatePresence, motion} from "framer-motion";
-import Navbar from "@/data/components/Navbar";
+import {motion} from "framer-motion";
 import TextInput from "@/data/components/Input";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
 
-const buttons = [
-    {'name': '面板', 'type': 'local', 'href': 'edit'},
-    {'name': '刪除', 'type': 'local', 'href': 'edit'},
-]
-
 export default function Dash({params}) {
+
+    const id = params.id
+
+    const buttons = [
+        {'name': '面板', 'type': 'local', 'href': `delete/${id}`},
+        {'name': '刪除', 'type': 'local', 'href': `delete/${id}`},
+    ]
 
     return (
         <>
             <section>
                 <div className={styles.Title}>{'ServerName'}</div>
-                <div className={styles.SubTitle}>ID:{params.id} {'CreateAt'}</div>
+                <div className={styles.SubTitle}>ID:{id} {'CreateAt'}</div>
                 <motion.div
                     className={styles.Buttons}>
                     {buttons && buttons.map((e, i) => {
                         return <MotionLink
-                            whileHover={{scale: 1.03}}
-                            href={`/dash/server/`}
+                            whileHover={{scale:1.03}}
+                            href={`/dash/${e.href}`}
                             className={styles.Button}
                             key={i}>
                             {e.name}

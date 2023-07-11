@@ -4,10 +4,8 @@
 }
 
 .Container {
-  height: 100%;
+  height: fit-content;
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
 
   display: flex;
   flex-direction: column;

@@ -1,5 +1,4 @@
 import styles from "./style.module.scss"
-import {useRef} from "react";
 
 export default function StatsCard({name, used, max, unit, children}) {
     return (

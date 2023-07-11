@@ -9,8 +9,12 @@ export async function GET(req) {
     // const resp = await create_local_user()
     // return NextResponse.json({resp})
 
+    // const user_data = await get_user_data()
+    // const resp = await create_user(user_data.email, user_data.username)
+    // console.log(resp)
+
     const user_data = await get_user_data()
-    const resp = await create_user(user_data.email, user_data.username)
+    const resp = await find_local_user(user_data.id)
     console.log(resp)
 
     return NextResponse.json({resp})

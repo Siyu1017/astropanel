@@ -1,13 +1,7 @@
+"use client"
 import styles from "./style.module.scss"
 import {motion} from "framer-motion";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
-import Link from "next/link";
-
-const buttons = [
-    {'name': '面板', 'type': 'local', 'href': 'edit'},
-    {'name': '編輯', 'type': 'local', 'href': 'edit'},
-    {'name': '刪除', 'type': 'local', 'href': 'edit'},
-]
 
 const item = {
     close: {
@@ -28,6 +22,12 @@ const item = {
 
 export default function ServerLink({name, id}) {
 
+    const buttons = [
+        {'name': '面板', 'type': 'local', 'href': `delete/${id}`},
+        {'name': '編輯', 'type': 'local', 'href': `server/${id}`},
+        {'name': '刪除', 'type': 'local', 'href': `delete/${id}`},
+    ]
+
     return (
         <motion.div
             initial={"close"}
@@ -42,7 +42,7 @@ export default function ServerLink({name, id}) {
                 {buttons && buttons.map((e, i) => {
                     return <MotionLink
                         whileHover={{scale:1.03}}
-                        href={`/dash/server/${id}`}
+                        href={`/dash/${e.href}`}
                         className={styles.Button}
                         key={i}>
                         {e.name}
