@@ -2,7 +2,7 @@ import '@/data/style/globals.scss'
 import styles from './layout.module.scss'
 import SideBar from "@/data/components/SideBar";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
-import {get_user_data} from "@/public/auth/auth";
+import {get_user_data} from "@/data/functions/auth/auth";
 import UserComponent from "data/components/UserComponent";
 
 const pages = [
@@ -44,25 +44,25 @@ const pages = [
 ]
 
 export default async function DashLayout({children}) {
-    // const user = await get_user_data()
-    const user = {
-        id: '881312396784840744',
-        username: 'asteroid_owo',
-        global_name: 'Asteroid',
-        avatar: '54910436c024eb7f1f5e09b4c1e75f05',
-        discriminator: '0',
-        public_flags: 4194368,
-        flags: 4194368,
-        banner: null,
-        banner_color: '#88c9f9',
-        accent_color: 8964601,
-        locale: 'en-US',
-        mfa_enabled: false,
-        premium_type: 0,
-        avatar_decoration: null,
-        email: 'liyoujun600@gmail.com',
-        verified: true
-    }
+    const user = await get_user_data()
+    // const user = {
+    //     id: '881312396784840744',
+    //     username: 'asteroid_owo',
+    //     global_name: 'Asteroid',
+    //     avatar: '54910436c024eb7f1f5e09b4c1e75f05',
+    //     discriminator: '0',
+    //     public_flags: 4194368,
+    //     flags: 4194368,
+    //     banner: null,
+    //     banner_color: '#88c9f9',
+    //     accent_color: 8964601,
+    //     locale: 'en-US',
+    //     mfa_enabled: false,
+    //     premium_type: 0,
+    //     avatar_decoration: null,
+    //     email: 'liyoujun600@gmail.com',
+    //     verified: true
+    // }
 
     return (
         <>
