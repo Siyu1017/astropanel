@@ -35,39 +35,6 @@ async function post_request(url, props) {
     return resp.json()
 }
 
-const pterouser = {
-    get_all: async function () {
-        return await get_request(`api/application/users`)
-    },
-    get: async function (email) {
-        const data = await pterouser.get_all()
-        let user = null
-
-        data.data.map(
-            (e) => {
-                console.log(e.attributes.email)
-                if (e.attributes.email === email) {
-                    user = e.attributes
-                }
-            }
-        )
-
-        return user
-    },
-    create: async function (email, username, firstname, lastname, password) {
-        const json = {
-            email: email,
-            username: username,
-            first_name: firstname ? firstname : username,
-            last_name: lastname ? lastname : username,
-            password: password ? password : makeid(10),
-        }
-
-        return await post_request('api/application/users', json)
-
-    }
-};
-
 function makeid(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -81,6 +48,47 @@ function makeid(length) {
     return result;
 }
 
+const pterouser = {
+    get_all: async function () {
+        return await get_request(`api/application/users`)
+    },
+    get: async function (email) {
+        const data = await pterouser.get_all()
+
+        data.data.map(
+            (e) => {
+                console.log(e.attributes.email)
+                if (e.attributes.email === email) {
+                    return e.attributes
+                }
+            }
+        )
+
+        return null
+    },
+    create: async function (email, username, firstname, lastname, password) {
+        const json = {
+            email: email,
+            username: username,
+            first_name: firstname ? firstname : username,
+            last_name: lastname ? lastname : username,
+            password: password ? password : makeid(10),
+        }
+
+        return await post_request('api/application/users', json)
+    }
+};
+
+const pteroserver = {
+    get_all: async function () {
+        return await get_request(`api/application/servers`)
+    },
+    get: async function (uid) {
+        return await get_request(`api/application/users/${uid}?include=servers`)
+    },
+};
+
 export {
-    pterouser
+    pterouser,
+    pteroserver
 }
