@@ -1,8 +1,13 @@
 const pterodactyl = {
-    url:"https://panel.pickname.ml/",
-    key:"ptla_J30ZcnjUQJMKEYG4XqTwTNIIorXGznURJCCnZq6pBmK"
+    url:"http://192.168.0.117/",
+    key:"ptla_pemSwZVPijDRZHu7LbDIXsQOCLgEuoHACtlJl2CLAPC"
 }
 
+const admins = [
+    "881312396784840744"
+]
+
 export {
-    pterodactyl
+    pterodactyl,
+    admins
 }
