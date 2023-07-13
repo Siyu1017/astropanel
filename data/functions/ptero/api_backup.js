@@ -146,5 +146,4 @@ export {
     find_local_user,
     get_local_user_data,
     get_ptero_user_data
-
 }

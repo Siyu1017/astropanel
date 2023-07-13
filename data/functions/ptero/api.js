@@ -53,16 +53,10 @@ const pterouser = {
         return await get_request(`api/application/users`)
     },
     get: async function (email) {
-        const data = await pterouser.get_all()
-
-        data.data.map(
-            (e) => {
-                console.log(e.attributes.email)
-                if (e.attributes.email === email) {
-                    return e.attributes
-                }
-            }
-        )
+        const data = await get_request(`api/application/users?filter[email]=${email}`)
+        if (data.meta.pagination.total !== 0) {
+            return data.data[0].attributes
+        }
 
         return null
     },
