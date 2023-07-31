@@ -1,7 +1,7 @@
 "use client"
 import styles from "./style.module.scss"
-import {useEffect, useRef, useState} from "react";
-import TextInput from "data/components/Input";
+import {useState} from "react";
+import TextInput from "data/components/TextInput";
 
 export default function Navbar() {
   const [CenterFill, setCenterFill] = useState(false)

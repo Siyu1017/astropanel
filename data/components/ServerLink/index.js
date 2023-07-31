@@ -20,12 +20,11 @@ const item = {
     }
 }
 
-export default function ServerLink({name, id}) {
-
+export default function ServerLink({name, id, url}) {
     const buttons = [
-        {'name': '面板', 'type': 'local', 'href': `delete/${id}`},
-        {'name': '編輯', 'type': 'local', 'href': `server/${id}`},
-        {'name': '刪除', 'type': 'local', 'href': `delete/${id}`},
+        {'name': '面板', 'type': 'local', 'href': url},
+        {'name': '編輯', 'type': 'local', 'href': `/dash/server/${id}`},
+        {'name': '刪除', 'type': 'local', 'href': `/dash/delete/${id}`},
     ]
 
     return (
@@ -42,7 +41,7 @@ export default function ServerLink({name, id}) {
                 {buttons && buttons.map((e, i) => {
                     return <MotionLink
                         whileHover={{scale:1.03}}
-                        href={`/dash/${e.href}`}
+                        href={e.href}
                         className={styles.Button}
                         key={i}>
                         {e.name}

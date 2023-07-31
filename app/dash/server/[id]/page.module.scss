@@ -6,6 +6,10 @@
 .SubTitle{
   font-size: 1.5rem;
   margin-bottom: 1rem;
+
+  .SubSubtitle{
+
+  }
 }
 
 .Buttons {
@@ -56,15 +60,15 @@
     font-size: 1.5rem;
     margin: 0;
   }
-}
 
-.Button {
-  width: 100%;
-  transition: .2s linear;
-  &:hover{
-    background-color: rgba(var(--bg-componets-2), 0.8);
-  }
-  &:active{
-    background-color: rgb(var(--bg-componets-2));
+  .Button {
+    width: 100%;
+    transition: .2s linear;
+    &:hover{
+      background-color: rgba(var(--bg-componets-2), 0.8);
+    }
+    &:active{
+      background-color: rgb(var(--bg-componets-2));
+    }
   }
 }

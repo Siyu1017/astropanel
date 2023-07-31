@@ -3,7 +3,7 @@ import {promises as fs} from 'fs';
 import path from 'path';
 import {get_user_data} from "@/data/functions/auth/auth";
 import fetch from "node-fetch";
-import * as config from "./data/config";
+import * as config from "../config/config";
 
 //local
 const usersDirectory = path.join('data', 'functions', 'ptero', 'data', 'users');

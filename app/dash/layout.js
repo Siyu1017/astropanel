@@ -1,9 +1,13 @@
+"use client"
 import '@/data/style/globals.scss'
 import styles from './layout.module.scss'
 import SideBar from "@/data/components/SideBar";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
-import {get_user_data} from "@/data/functions/auth/auth";
-import UserComponent from "data/components/UserComponent";
+import UserComponent from "@/data/components/UserComponent";
+import DashLayoutLoading from "@/app/dash/layout_loading";
+import useSWR from "swr";
+import {panel_info} from "@/data/functions/config/config";
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const pages = [
     {
@@ -43,26 +47,15 @@ const pages = [
     },
 ]
 
-export default async function DashLayout({children}) {
-    const user = await get_user_data()
-    // const user = {
-    //     id: '881312396784840744',
-    //     username: 'asteroid_owo',
-    //     global_name: 'Asteroid',
-    //     avatar: '54910436c024eb7f1f5e09b4c1e75f05',
-    //     discriminator: '0',
-    //     public_flags: 4194368,
-    //     flags: 4194368,
-    //     banner: null,
-    //     banner_color: '#88c9f9',
-    //     accent_color: 8964601,
-    //     locale: 'en-US',
-    //     mfa_enabled: false,
-    //     premium_type: 0,
-    //     avatar_decoration: null,
-    //     email: 'liyoujun600@gmail.com',
-    //     verified: true
-    // }
+export default function DashLayout({children}) {
+    const { data, error, isLoading } = useSWR('/api/user/discord', fetcher)
+
+    if (error) return <div>failed to load</div>
+    if (isLoading) return <DashLayoutLoading/>
+
+    const user = data
+
+    console.log(user)
 
     return (
         <>
@@ -81,7 +74,7 @@ export default async function DashLayout({children}) {
                         className={styles.TopTitle}
                         href={'/'}
                     >
-                        Asteroid Host
+                        {panel_info.name}
                     </MotionLink>
                 </div>
                 <div className={styles.center}>

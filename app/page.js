@@ -1,7 +1,7 @@
 "use client"
-import Image from 'next/image'
 import styles from './page.module.scss'
 import {motion} from "framer-motion";
+import {panel_info, pterodactyl} from "@/data/functions/config/config";
 
 export default function Home() {
 
@@ -20,7 +20,7 @@ export default function Home() {
                     }}
                     className={styles.TopTitle}
                 >
-                    Asteroid Host
+                    {panel_info.name}
                 </motion.div>
                 <motion.div
                     initial={{
@@ -51,8 +51,8 @@ export default function Home() {
                     className={styles.Buttons}
                 >
                     <a href={'/login'} className={'button'}>登入</a>
-                    <a href={'https://panel.asteroid.tw'} className={'button'}>控制面板</a>
-                    <a href={'https://discord.gg/hRueescnnN'} className={'button'}>Discord</a>
+                    <a href={pterodactyl.url} className={'button'}>控制面板</a>
+                    <a href={panel_info.discord} className={'button'}>Discord</a>
                 </motion.div>
             </div>
         </main>

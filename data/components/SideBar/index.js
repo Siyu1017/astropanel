@@ -1,10 +1,11 @@
 "use client"
 import styles from "./style.module.scss"
 import {useState} from "react";
-import {color, motion} from "framer-motion";
+import {motion} from "framer-motion";
 import {usePathname} from "next/navigation";
 import MiniGuide from "@/data/components/MiniGuide";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
+import {panel_info} from "@/data/functions/config/config";
 
 export default function SideBar({items}) {
     const pathname = usePathname()
@@ -13,10 +14,6 @@ export default function SideBar({items}) {
 
     function changeActive() {
         setDrawerActive(!DrawerActive)
-    }
-
-    function Active() {
-        setDrawerActive(true)
     }
 
     function UnActive() {
@@ -69,6 +66,8 @@ export default function SideBar({items}) {
                 </MotionLink>
             })}
             {pathname}
+
+            <a href={panel_info.made_by_link} className={styles.MadeBy}>{panel_info.made_by}</a>
         </motion.div>
     </>)
 }

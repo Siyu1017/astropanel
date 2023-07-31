@@ -1,21 +1,23 @@
 {
-  "name": "asteroid-website",
+  "name": "astropanel",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 12308",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "cookies-next": "^2.1.2",
     "framer-motion": "^10.12.16",
+    "fs": "^0.0.1-security",
     "jose": "^4.14.4",
     "next": "^13.4.6",
     "node-fetch": "^3.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.63.4"
+    "sass": "^1.63.4",
+    "swr": "^2.2.0"
   }
 }

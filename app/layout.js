@@ -2,7 +2,7 @@
 import '@/data/style/globals.scss'
 import {Inter} from 'next/font/google'
 import {motion} from "framer-motion";
-import HoverTips from "@/data/components/HoverTips";
+import {panel_info} from "@/data/functions/config/config";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -10,7 +10,7 @@ export default function RootLayout({children}) {
     return (
         <html>
         <head>
-            <title>Asteroid Host</title>
+            <title>{panel_info.name}</title>
             <link rel="icon" href="/favicon.ico" sizes="any"/>
         </head>
         <motion.body
@@ -20,8 +20,6 @@ export default function RootLayout({children}) {
             className={inter.className}>
 
             {children}
-
-            <HoverTips/>
         </motion.body>
         </html>
     )

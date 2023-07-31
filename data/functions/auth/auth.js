@@ -1,4 +1,4 @@
-import * as config from "@/data/functions/auth/config";
+import * as config from "@/data/functions/config/config";
 import {cookies} from "next/headers";
 
 async function auth_callback(req) {
