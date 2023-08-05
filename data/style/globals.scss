@@ -4,39 +4,50 @@
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --bg: 255,255,255;
-  --bg-componets: 230,230,230;
-  --bg-componets-2: 200,200,200;
+  --bg: 18,18,18;
+  --bg-componets: 40,40,40;
+  --bg-componets-2: 60,60,60;
 
-  --bg-componets-danger: 255,200,200;
+  --bg-componets-danger: 80,20,20;
 
-  --bg-hover-tips: 180,180,180;
-
-  --fg-1: 0,0,0;
-  --fg-2: 20,20,20;
+  --fg-1: 255,255,255;
+  --fg-2: 235,235,235;
 
   --op-1: 0,200,255;
   --op-2: 16,204,0;
   --op-3: 255,153,20;
   --op-4: 255,0,0;
 
+  --blur: 20px;
+
+  --bg-hover-tips: 90,90,90;
   --app-drawer-width: 240px;
+  //--bg: 255,255,255;
+  //--bg-componets: 230,230,230;
+  //--bg-componets-2: 200,200,200;
+  //
+  //--bg-componets-danger: 255,200,200;
+  //
+  //--bg-hover-tips: 180,180,180;
+  //
+  //--fg-1: 255,255,255;
+  //--fg-2: 235,235,235;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: 18,18,18;
-    --bg-componets: 40,40,40;
-    --bg-componets-2: 60,60,60;
-
-    --bg-componets-danger: 80,20,20;
-
-    --bg-hover-tips: 90,90,90;
-
-    --fg-1: 255,255,255;
-    --fg-2: 235,235,235;
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    --bg: 18,18,18;
+//    --bg-componets: 40,40,40;
+//    --bg-componets-2: 60,60,60;
+//
+//    --bg-componets-danger: 80,20,20;
+//
+//    --bg-hover-tips: 90,90,90;
+//
+//    --fg-1: 255,255,255;
+//    --fg-2: 235,235,235;
+//  }
+//}
 
 * {
   color: rgb(var(--fg-1));
@@ -106,11 +117,11 @@ button, .button {
   user-select: none;
 
   &:hover{
-    background-color: rgb(var(--bg-componets));
+    background-color: rgba(var(--bg-componets),.5);
   }
 
   &:active{
-    background-color: rgb(var(--bg-componets-2));
+    background-color: rgba(var(--bg-componets-2),.5);
   }
 }
 

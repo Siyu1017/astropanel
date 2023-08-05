@@ -23,20 +23,6 @@ export default function Home() {
                     {panel_info.name}
                 </motion.div>
                 <motion.div
-                    initial={{
-                        opacity: 0
-                    }}
-                    animate={{
-                        opacity: 1
-                    }}
-                    transition={{
-                        duration: 1,
-                        ease: "easeOut",
-                    }}
-                    className={styles.Title}>
-                    歡迎
-                </motion.div>
-                <motion.div
                     // initial={{
                     //     height: 0
                     // }}

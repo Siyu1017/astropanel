@@ -39,10 +39,15 @@
 
     user-select: none;
 
-    background-color: rgb(var(--bg-componets));
+    background-color: rgba(var(--bg-componets-2), 0.2);;
+    backdrop-filter: blur(var(--blur));
 
-    &:hover {
-      background-color: rgb(var(--bg-componets-2));
+    &:hover{
+      background-color: rgba(var(--bg-componets),.5);
+    }
+
+    &:active{
+      background-color: rgba(var(--bg-componets-2),.5);
     }
   }
 }
@@ -50,7 +55,8 @@
 .Form{
   display: flex;
   flex-direction: column;
-  background: rgb(var(--bg-componets));
+  background-color: rgba(var(--bg-componets-2), 0.2);;
+  backdrop-filter: blur(var(--blur));
   padding: 1rem;
   border-radius: 10px;
 
@@ -65,10 +71,11 @@
     width: 100%;
     transition: .2s linear;
     &:hover{
-      background-color: rgba(var(--bg-componets-2), 0.8);
+      background-color: rgba(var(--bg-componets),.5);
     }
+
     &:active{
-      background-color: rgb(var(--bg-componets-2));
+      background-color: rgba(var(--bg-componets-2),.5);
     }
   }
 }

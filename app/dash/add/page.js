@@ -78,7 +78,6 @@ export default function Dash() {
         http.onreadystatechange = function () {//Call a function when the state changes.
             if (http.readyState === 4 && http.status === 200) {
                 const resp = JSON.parse(http.responseText)
-                console.log(resp);
                 if (resp.ok) {
                     alert(`伺服器 ${resp.data.attributes.name} 建立成功: /dash/server/${resp.data.attributes.id}`)
                     redirect(`/dash/server/${resp.data.attributes.id}`)

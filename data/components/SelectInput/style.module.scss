@@ -1,4 +1,6 @@
 .TextInput {
+  background-color: rgba(var(--bg-componets-2), .5);;
+  backdrop-filter: blur(var(--blur));
   width: 100%;
   padding: 12px 20px;
   box-sizing: border-box;

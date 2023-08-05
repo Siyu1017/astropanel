@@ -1,5 +1,7 @@
 .MiniGuide{
-  background-color: rgb(var(--bg-componets));
+  backdrop-filter: blur(var(--blur));
+  background-color: rgba(var(--bg-componets),.3);
+
   position: absolute;
   top: 3.5rem;
   left: 0;

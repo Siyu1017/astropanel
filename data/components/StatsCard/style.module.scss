@@ -1,7 +1,8 @@
 .StatusCard {
   position: relative;
   border-radius: 10px;
-  background-color: rgb(var(--bg-componets));
+  backdrop-filter: blur(var(--blur));
+  background-color: rgba(var(--bg-componets),.5);
   overflow: hidden;
 
   .Info {

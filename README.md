@@ -11,8 +11,8 @@ AstroPanel 是一個基於 [Next.js](https://nextjs.org/) 打造的Pterodactyl�
 const panel_info = {
     name: "AstroPanel",//你的面板的名稱
     discord: "https://discord.gg/hRueescnnN",//你的discord群組
-    made_by: "Made By asteroid_owo",//不建議改
-    made_by_link: "https://github.com/tooty-1135"//不建議改
+    made_by: "Made By asteroid_owo",
+    made_by_link: "https://github.com/tooty-1135"
 }
 
 const pterodactyl = {

@@ -1,7 +1,6 @@
 .Container {
   padding: .6rem;
   display: flex;
-  background-color: rgb(var(--bg-componets));
   align-items: center;
   gap: 1rem;
   position: relative;
@@ -18,8 +17,6 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-
-    background-color: rgb(var(--bg-componets));
 
     .Button {
       color: rgb(var(--fg-1));

@@ -1,7 +1,8 @@
 .ServerLink {
   padding: .6rem;
   display: flex;
-  background-color: rgb(var(--bg-componets));
+  backdrop-filter: blur(var(--blur));
+  background-color: rgba(var(--bg-componets),.5);
   width: 100%;
   align-items: center;
   gap: 1rem;
