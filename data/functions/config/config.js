@@ -1,8 +1,9 @@
 const panel_info = {
     name: "AstroPanel",
     discord: "https://discord.gg/hRueescnnN",
-    made_by: "Made By asteroid_owo",//不建議改
-    made_by_link: "https://github.com/tooty-1135"//不建議改
+    made_by: "Made By asteroid_owo",//留著吧，求你了
+    made_by_link: "https://github.com/tooty-1135",
+    bg_yt_id: "lRTtMcx6rSM"
 }
 
 const pterodactyl = {

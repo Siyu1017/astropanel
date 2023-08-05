@@ -29,7 +29,7 @@ export default function RootLayout({children}) {
                 transition={{ease: "easeOut", duration: 2, delay: 3}}
 
                 width="560" height="315"
-                src="https://www.youtube.com/embed/lRTtMcx6rSM?controls=0&autoplay=1&mute=1&playsinline=1"
+                src={`https://www.youtube.com/embed/${panel_info.bg_yt_id}?controls=0&autoplay=1&mute=1&playsinline=1&version=3&loop=1&playlist=${panel_info.bg_yt_id}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
             ></motion.iframe>

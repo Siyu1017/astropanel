@@ -11,8 +11,9 @@ AstroPanel 是一個基於 [Next.js](https://nextjs.org/) 打造的Pterodactyl�
 const panel_info = {
     name: "AstroPanel",//你的面板的名稱
     discord: "https://discord.gg/hRueescnnN",//你的discord群組
-    made_by: "Made By asteroid_owo",
-    made_by_link: "https://github.com/tooty-1135"
+    made_by: "Made By asteroid_owo",//留著吧，求你了
+    made_by_link: "https://github.com/tooty-1135",
+    bg_yt_id: "lRTtMcx6rSM"//背景影片的youtube id
 }
 
 const pterodactyl = {
@@ -64,6 +65,38 @@ npm run start
 ## 出現錯誤或不會裝?
 可以到 [我的discord](https://discord.gg/hRueescnnN)
 
+## 配色問題?
+打開`globals.scss`(位於`@/data/style/`)\
+你會看到
+```scss
+:root {
+  --border-radius: 12px;//這個暫時不會套用到全局
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  //背景的顏色
+  --bg: 18,18,18;
+  --bg-componets: 40,40,40;
+  --bg-componets-2: 60,60,60;
+  --bg-componets-danger: 80,20,20;
+
+  //文字的顏色
+  --fg-1: 255,255,255;
+  --fg-2: 235,235,235;
+
+  //神奇的顏色，有用到
+  --op-1: 0,200,255;
+  --op-2: 16,204,0;
+  --op-3: 255,153,20;
+  --op-4: 255,0,0;
+
+  --blur: 20px;//物件的模糊程度
+
+  --bg-hover-tips: 90,90,90;
+  --app-drawer-width: 240px;
+}
+```
+顏色的格式是`r,g,b`\
+改成你喜歡的顏色就好了
 ## 關於
 這個專案我花了不少時間開發的，希望你可以把`Made By asteroid_owo`留著\
 歡迎star這個專案\
