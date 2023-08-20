@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 import * as config from "@/data/functions/config/config";
+import {admins, default_limit} from "@/data/functions/config/config";
 import {promises as fs} from "fs";
 import path from "path";
 import {get_user_data} from "@/data/functions/auth/auth";
-import {default_limit} from "@/data/functions/config/config";
 
 const usersDirectory = path.join('data', 'functions', 'ptero', 'data', 'users');
 
@@ -231,6 +231,9 @@ const pterouser = {
         }
         return {ok: true}
     },
+    is_admin: async function (dc_uid) {
+        return admins.includes(dc_uid.toString()) === true
+    },
 };
 
 const pteroserver = {
@@ -324,7 +327,7 @@ const pteroserver = {
 
         console.log(data)
 
-        return {ok:true, data:data}
+        return {ok: true, data: data}
     },
     edit: async function (id, params) {
         await fetch(`${config.pterodactyl.url}api/application/servers/${id}/build`, {
@@ -346,7 +349,36 @@ const pteroserver = {
     },
 };
 
+const pteroadmin = {
+    get_users: async function () {
+        const users = []
+        for (const filename of await fs.readdir(usersDirectory)) {
+            const data = JSON.parse(await fs.readFile(usersDirectory + `/${filename}`, {encoding: 'utf8'}))
+            users.push({
+                name: data.name,
+                email: data.email,
+                dc_id: data.dc_id,
+                ptero_id: data.ptero_id,
+                admin: await pterouser.is_admin(data.dc_id)
+            })
+        }
+        return users
+    },
+    get_user: async function (dc_id) {
+        const data = JSON.parse(await fs.readFile(usersDirectory + `/${dc_id}.json`, {encoding: 'utf8'}))
+        return {
+            name: data.name,
+            email: data.email,
+            dc_id: data.dc_id,
+            ptero_id: data.ptero_id,
+            admin: await pterouser.is_admin(data.dc_id)
+        }
+    },
+};
+
+
 export {
     pterouser,
-    pteroserver
+    pteroserver,
+    pteroadmin,
 }

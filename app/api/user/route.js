@@ -10,11 +10,12 @@ export async function GET(req) {
     const used_res = await pterouser.used_res(servers)
 
     const data = {
-        dc:dc_user,
-        ptero:ptero_user,
-        local:local_user,
-        servers:servers,
-        used_res:used_res
+        dc: dc_user,
+        ptero: ptero_user,
+        local: local_user,
+        servers: servers,
+        used_res: used_res,
+        admin: await pterouser.is_admin(dc_user.id)===true
     }
 
     return NextResponse.json(data)
