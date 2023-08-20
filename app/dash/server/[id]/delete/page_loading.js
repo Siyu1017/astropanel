@@ -1,6 +1,6 @@
 "use client"
 import styles from './page.module.scss'
-import TextInput from "data/components/TextInput";
+import TextInput from "@/data/components/TextInput";
 
 export default function LoadingDelete() {
 

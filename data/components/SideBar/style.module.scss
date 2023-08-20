@@ -1,59 +1,50 @@
 .SideBar {
-  backdrop-filter: blur(var(--blur));
-  background-color: rgba(var(--bg-componets),.3);
   position: absolute;
-  top: 3.5rem;
-  height: calc(100vh - 3.5rem);
-  width: var(--app-drawer-width);
+  top: var(--navbar-height);
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
   z-index: 99;
   display: flex;
   flex-direction: column;
   padding: 1rem;
 
-  &.active {
-    left: 50px;
-
-    .activeBtn {
-      .arrowIcon {
-        transform: rotate(90deg);
-      }
-    }
+  &.fh {
+    top: 0;
+    height: 100vh;
+    padding-top: var(--navbar-height);
+    backdrop-filter: blur(var(--blur));
+    background-color: rgba(var(--bg-componets), .3);
   }
 
-  .activeBtn {
-    display: flex;
-    position: absolute;
-    top: 0;
-    right: -10px;
-    width: 10px;
-    height: 100%;
-    background-color: rgba(var(--bg-componets),.7);
-    backdrop-filter: blur(var(--blur));
-    justify-content: center;
-    align-items: center;
-    user-select: none;
+  .UserItem {
+    gap: 1rem;
 
-    .arrowIcon {
-      font-size: 15px;
-      transform: rotate(-90deg);
+    .User {
+      display: flex;
+      align-items: center;
+      padding: .5rem;
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      background-size: cover;
     }
 
-    &:hover {
-      right: -20px;
-      width: 20px;
+    .Info {
+      display: flex;
+      flex-direction: column;
 
-      .arrowIcon {
-        font-size: 25px;
+      .Name {
+        font-size: var(--sub-title-size);
       }
     }
   }
 
   .Item {
     display: flex;
-    font-size: 1.5rem;
+    font-size: var(--sub-title-2-size);
     align-items: center;
     padding: .5rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     user-select: none;
     cursor: pointer;
     width: 100%;
@@ -62,70 +53,27 @@
 
     .Icon {
       display: flex;
-      width: 2rem;
+      width: 1.5rem;
       margin-right: .5rem;
       fill: rgb(var(--fg-1));
       align-items: center;
     }
 
-    &:hover{
+    &:hover {
       background-color: rgba(var(--bg-componets-2), .8);
     }
 
-    &:active{
+    &:active {
       background-color: rgb(var(--bg-componets-2));
     }
   }
 
-  .MadeBy{
+  .Logout {
+    margin-top: auto;
+  }
+
+  .MadeBy {
     position: absolute;
     bottom: 0;
-  }
-}
-
-.SideBarBackground {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  left: -100vw;
-
-  &.active {
-    z-index: 98;
-    left: 0;
-  }
-}
-
-@keyframes start_animation {
-  0% {
-    right: -10px;
-    width: 10px;
-  }
-  25% {
-    right: -20px;
-    width: 20px;
-  }
-  75% {
-    right: -20px;
-    width: 20px;
-  }
-  100% {
-    right: -10px;
-    width: 10px;
-  }
-}
-
-@keyframes start_animation_arrow {
-  0% {
-    font-size: 15px;
-  }
-  25% {
-    font-size: 25px;
-  }
-  75% {
-    font-size: 25px;
-  }
-  100% {
-    font-size: 15px;
   }
 }

@@ -92,7 +92,7 @@ npm run start
   --blur: 20px;//物件的模糊程度
 
   --bg-hover-tips: 90,90,90;
-  --app-drawer-width: 240px;
+  --sidebar-width: 240px;
 }
 ```
 顏色的格式是`r,g,b`\

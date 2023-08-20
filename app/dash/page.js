@@ -1,24 +1,21 @@
 "use client"
 import styles from './page.module.scss'
-import StatsCard from "data/components/StatsCard";
-import ServerLink from "@/data/components/ServerLink";
+import StatsCard, {LoadingStatsCard} from "data/components/StatsCard";
+import CardButton, {LoadingCardButton} from "data/components/CardButton";
 import TextInput from "data/components/TextInput";
 import Button from "@/data/components/Button";
-import useSWR from "swr";
-import {fetcher} from "@/data/functions/fetcher";
-import LoadingDash from "@/app/dash/page_loading";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AccountContext} from "@/data/context/context";
 
 export default function Dash() {
 
     const [rstPwd_isSending, rstPwd_setSending] = useState(false)
 
-    const {data, error, isLoading, mutate} = useSWR('/api/user', fetcher)
-
-    if (error) return <div>failed to load</div>
-    if (isLoading) return <LoadingDash/>
+    const data = useContext(AccountContext);
 
     console.log(data)
+
+    if (!data) return <LoadingDash/>
 
     function reset_pwd(e) {
         e.preventDefault()
@@ -32,7 +29,6 @@ export default function Dash() {
         http.setRequestHeader('Content-type', 'application/json');
 
         http.onreadystatechange = async function () {//Call a function when the state changes.
-            await mutate()
             rstPwd_setSending(false)
         }
         http.send();
@@ -73,11 +69,12 @@ export default function Dash() {
             <section>
                 <div className={styles.Title}>所有伺服器</div>
                 <div className={styles.Servers}>
-                    <div className={styles.List}>
-                        {data.servers.length !== 0 ? data.servers.map((e, i) => {
-                            return <ServerLink name={e.name} id={e.id} url={e.url} key={i}/>
-                        }) : <>什麼也沒有</>}
-                    </div>
+                    {data.servers.length !== 0 ? data.servers.map((e, i) => {
+                        const limit = e.limits
+                        return <CardButton desc={`${limit.cpu}% cpu, ${limit.memory}mb 記憶體, ${limit.disk}mb 磁碟`}
+                                           name={e.name} url={`/dash/server/${e.id}`}
+                                           buttons={[{name: "控制面板", href: e.url}]} key={i}/>
+                    }) : <>什麼也沒有</>}
                 </div>
             </section>
 
@@ -88,6 +85,45 @@ export default function Dash() {
                     <TextInput readonly={true} props={{value: data.local.pass}}/>
                     <Button onClick={reset_pwd} isLoading={rstPwd_isSending}
                             className={`button ${styles.Button}`}>重設密碼</Button>
+                </div>
+            </section>
+        </>
+    )
+}
+
+const loading = {
+    opacity: .5
+}
+
+function LoadingDash() {
+
+    return (
+        <>
+            <section style={loading}>
+                <div className={styles.Title}>資源</div>
+                <div className={styles.Stats}>
+                    <LoadingStatsCard/>
+                    <LoadingStatsCard/>
+                    <LoadingStatsCard/>
+                    <LoadingStatsCard/>
+                </div>
+            </section>
+
+            <section style={loading}>
+                <div className={styles.Title}>所有伺服器</div>
+                <div className={styles.Servers}>
+                    <LoadingCardButton/>
+                    <LoadingCardButton/>
+                    <LoadingCardButton/>
+                </div>
+            </section>
+
+            <section style={loading}>
+                <div className={styles.Title}>使用者</div>
+                <div className={styles.User}>
+                    <TextInput readonly={true}/>
+                    <TextInput readonly={true}/>
+                    <Button isLoading={true} className={`button ${styles.Button}`}/>
                 </div>
             </section>
         </>

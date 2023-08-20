@@ -1,33 +1,42 @@
 .ServerLink {
-  padding: .6rem;
+  min-height: 4.5rem;
+  padding: 1rem;
   display: flex;
   backdrop-filter: blur(var(--blur));
-  background-color: rgba(var(--bg-componets),.5);
+  background-color: rgba(var(--bg-componets), .5);
   width: 100%;
   align-items: center;
   gap: 1rem;
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius);
+  cursor: pointer;
 
-  .Name {
-    font-size: 1.5rem;
+  .Title {
+    display: flex;
+    flex-direction: column;
+    .Name {
+      font-size: 1.4rem;
+      min-width: 50px;
+    }
+    .Desc {
+      font-size: .7rem;
+      min-width: 50px;
+    }
   }
 
   .Buttons {
-    position: absolute;
-    left: 0;
-    top: 0;
+    margin-left: auto;
     display: flex;
-    width: 100%;
-    height: 100%;
 
     .Button {
       flex: 1;
       color: rgb(var(--fg-1));
+      border-radius: var(--border-radius);
 
       cursor: pointer;
       justify-content: center;
-      padding: .6em;
+      padding: .6rem;
 
       display: flex;
       text-align: center;
@@ -35,39 +44,32 @@
 
       align-items: center;
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.1;
       position: relative;
       vertical-align: top;
 
       user-select: none;
 
-      background-color: rgb(var(--bg-componets));
+      background-color: rgb(var(--bg-componets), .8);
 
       &:hover {
-        background-color: rgb(var(--bg-componets-2));
+        background-color: rgb(var(--bg-componets-2), .8);
       }
+
     }
   }
 
   .Arrow {
     font-size: 1.2rem;
     user-select: none;
-    margin-left: auto;
-  }
-
-  &:only-child {
-    border-radius: 10px !important;
-  }
-
-  &:first-child {
-    border-radius: 10px 10px 0 0;
-  }
-
-  &:last-child {
-    border-radius: 0 0 10px 10px;
+    margin-left: .2rem;
   }
 
   &[disabled] {
     cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: rgb(var(--bg-componets-2), .5);
   }
 }

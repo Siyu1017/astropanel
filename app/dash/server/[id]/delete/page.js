@@ -1,9 +1,9 @@
 "use client"
 import styles from './page.module.scss'
-import TextInput from "data/components/TextInput";
+import TextInput from "@/data/components/TextInput";
 import useSWR from "swr";
 import {fetcher} from "@/app/dash/add/page";
-import LoadingDelete from "@/app/dash/delete/[id]/page_loading";
+import LoadingDelete from "@/app/dash/server/[id]/delete/page_loading";
 import {useState} from "react";
 import Button from "@/data/components/Button";
 import {redirect} from "next/navigation";

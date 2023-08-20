@@ -1,81 +1,20 @@
-.Title{
-  font-size: 2.5rem;
+.Title {
+  font-size: var(--title-size);
   margin-bottom: 1rem;
 }
 
-.SubTitle{
-  font-size: 1.5rem;
+.SubTitle {
+  font-size: var(--sub-title-size);
   margin-bottom: 1rem;
 
-  .SubSubtitle{
+  .SubSubtitle {
 
   }
 }
 
 .Buttons {
   display: flex;
-  width: 100%;
-  height: 3rem;
-  border-radius: 10px;
-  overflow: hidden;
-
-  .Button {
-    flex: 1;
-    color: rgb(var(--fg-1));
-
-    cursor: pointer;
-    justify-content: center;
-    padding: .6em;
-
-    display: flex;
-    text-align: center;
-    white-space: nowrap;
-
-    align-items: center;
-    font-size: 1rem;
-    line-height: 1.5;
-    position: relative;
-    vertical-align: top;
-
-    user-select: none;
-
-    background-color: rgba(var(--bg-componets-2), 0.2);;
-    backdrop-filter: blur(var(--blur));
-
-    &:hover{
-      background-color: rgba(var(--bg-componets),.5);
-    }
-
-    &:active{
-      background-color: rgba(var(--bg-componets-2),.5);
-    }
-  }
-}
-
-.Form{
-  display: flex;
+  gap: .2rem;
   flex-direction: column;
-  background-color: rgba(var(--bg-componets-2), 0.2);;
-  backdrop-filter: blur(var(--blur));
-  padding: 1rem;
-  border-radius: 10px;
-
-  gap: .5em;
-
-  .Title {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-
-  .Button {
-    width: 100%;
-    transition: .2s linear;
-    &:hover{
-      background-color: rgba(var(--bg-componets),.5);
-    }
-
-    &:active{
-      background-color: rgba(var(--bg-componets-2),.5);
-    }
-  }
+  width: 100%;
 }

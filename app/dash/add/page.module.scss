@@ -1,5 +1,5 @@
 .Title {
-  font-size: 2rem;
+  font-size: var(--title-size);
   margin-bottom: 1rem;
 }
 
@@ -36,7 +36,7 @@
     gap: .5em;
 
     .Title {
-      font-size: 1.5rem;
+      font-size: var(--sub-title-2-size);
       margin: 0;
     }
   }

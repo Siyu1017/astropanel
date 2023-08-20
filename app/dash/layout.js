@@ -1,12 +1,14 @@
 "use client"
 import '@/data/style/globals.scss'
 import styles from './layout.module.scss'
-import SideBar from "@/data/components/SideBar";
+import SideBar, {SideBarLoading} from "@/data/components/SideBar";
 import {MotionLink} from "@/data/components/MotionLink/MotionLink";
-import UserComponent from "@/data/components/UserComponent";
-import DashLayoutLoading from "@/app/dash/layout_loading";
 import useSWR from "swr";
 import {panel_info} from "@/data/functions/config/config";
+import {AccountContext} from "@/data/context/context";
+import {useState} from "react";
+import {useWindowSize} from "@/data/hooks/WindowSize/WindowSize";
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
 const pages = [
@@ -48,17 +50,64 @@ const pages = [
 ]
 
 export default function DashLayout({children}) {
-    const { data, error, isLoading } = useSWR('/api/user/discord', fetcher)
+    const [DrawerActive, setDrawerActive] = useState(false);
+    const size = useWindowSize();
+
+    const {data, error, isLoading} = useSWR('/api/user', fetcher)
 
     if (error) return <div>failed to load</div>
-    if (isLoading) return <DashLayoutLoading/>
+    if (isLoading) return <DashLayoutLoading children={children}/>
 
-    const user = data
-
-    console.log(user)
+    function toggleActive() {
+        setDrawerActive(!DrawerActive)
+    }
 
     return (
-        <>
+        <AccountContext.Provider value={data}>
+            <div className={`${styles.Navbar}`}>
+                <div className={styles.left}>
+                    {size.width < 800 &&
+                        <span className={`material-icon ${styles.MenuIcon}`} onClick={toggleActive}>menu</span>}
+
+                    <MotionLink
+                        animate={{
+                            backgroundPosition: ["0", "-400%", "0"]
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 30,
+                            times: [0, 0.5, 1],
+                            ease: "linear",
+                        }}
+                        className={styles.TopTitle}
+                        href={'/dash'}
+                    >
+                        {panel_info.name}
+                    </MotionLink>
+                </div>
+                <div className={styles.center}>
+                    {/*<TextInput placeholder={"搜尋"} className={styles.content}></TextInput>*/}
+                </div>
+                <div className={styles.right}>
+                    {/*<UserComponent admin={data.admin}*/}
+                    {/*               name={user.global_name}*/}
+                    {/*               avatar={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`}/>*/}
+                </div>
+            </div>
+            <SideBar user={data.dc} admin={data.admin} items={pages} active={DrawerActive || size.width > 800}
+                     fh={size.width < 800}/>
+
+            <main className={`${styles.main} ${size.width > 800 ? styles.left : ""}`}>
+                {children}
+            </main>
+        </AccountContext.Provider>
+    )
+}
+
+function DashLayoutLoading({children}) {
+    const size = useWindowSize();
+    return (
+        <AccountContext.Provider value={null}>
             <div className={`${styles.Navbar}`}>
                 <div className={styles.left}>
                     <MotionLink
@@ -72,24 +121,21 @@ export default function DashLayout({children}) {
                             ease: "linear",
                         }}
                         className={styles.TopTitle}
-                        href={'/'}
+                        href={'/dash'}
                     >
                         {panel_info.name}
                     </MotionLink>
                 </div>
                 <div className={styles.center}>
-                    {/*<TextInput placeholder={"搜尋"} className={styles.content}></TextInput>*/}
                 </div>
                 <div className={styles.right}>
-                    <UserComponent name={user.global_name}
-                                   avatar={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}`}/>
                 </div>
             </div>
-            <SideBar items={pages}/>
+            <SideBarLoading items={pages} active={size.width > 800} fh={size.width < 800}/>
 
-            <main className={styles.main}>
+            <main className={`${styles.main} ${size.width > 800 ? styles.left : ""}`}>
                 {children}
             </main>
-        </>
+        </AccountContext.Provider>
     )
 }

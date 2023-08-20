@@ -1,27 +1,36 @@
 @import "./value";
 
 :root {
-  --border-radius: 12px;
+  --border-radius: 5px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --bg: 18,18,18;
-  --bg-componets: 40,40,40;
-  --bg-componets-2: 60,60,60;
+  --bg: 18, 18, 18;
+  --bg-componets: 40, 40, 40;
+  --bg-componets-2: 60, 60, 60;
 
-  --bg-componets-danger: 80,20,20;
+  --bg-componets-danger: 80, 20, 20;
 
-  --fg-1: 255,255,255;
-  --fg-2: 235,235,235;
+  --fg-1: 255, 255, 255;
+  --fg-2: 235, 235, 235;
 
-  --op-1: 0,200,255;
-  --op-2: 16,204,0;
-  --op-3: 255,153,20;
-  --op-4: 255,0,0;
+  --op-1: 0, 200, 255;
+  --op-2: 16, 204, 0;
+  --op-3: 255, 153, 20;
+  --op-4: 255, 0, 0;
 
   --blur: 20px;
 
-  --bg-hover-tips: 90,90,90;
-  --app-drawer-width: 240px;
+  --bg-hover-tips: 90, 90, 90;
+  --sidebar-width: 270px;
+  --navbar-height: 3rem;
+
+  --title-size: 2rem;
+  --sub-title-size: 1.5rem;
+  --sub-title-2-size: 1.3rem;
+  --text-size: 1.1rem;
+
+
+
   //--bg: 255,255,255;
   //--bg-componets: 230,230,230;
   //--bg-componets-2: 200,200,200;
@@ -116,12 +125,37 @@ button, .button {
 
   user-select: none;
 
-  &:hover{
-    background-color: rgba(var(--bg-componets),.5);
+  &:hover {
+    background-color: rgba(var(--bg-componets), .5);
   }
 
-  &:active{
-    background-color: rgba(var(--bg-componets-2),.5);
+  &:active {
+    background-color: rgba(var(--bg-componets-2), .5);
+  }
+}
+
+.loading {
+  overflow: hidden;
+  background: rgba(217,217,217,.1);
+  border-radius: 8px;
+  padding: 0 !important;
+}
+
+.loading::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  animation: loading 5s infinite;
+  background: linear-gradient(100deg, rgba(0,0,0,0) 35%, rgba(217,217,217,1) 50%, rgba(0,0,0,0) 65%);;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 

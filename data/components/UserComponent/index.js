@@ -1,12 +1,13 @@
 "use client"
 import styles from "./style.module.scss"
 import {useEffect, useRef, useState} from "react";
-import {AnimatePresence} from "framer-motion";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
+import {usePathname} from "next/navigation";
 
-export default function UserComponent({avatar, name}) {
+export default function UserComponent({avatar, name, admin}) {
     const [isOpen, setIsOpen] = useState(false)
     const container = useRef(null)
+    const pathname = usePathname()
 
     function handleDocumentClick(e) {
         if (container.current) {
@@ -62,6 +63,16 @@ export default function UserComponent({avatar, name}) {
                             {/*    <div className={styles.Name}>owo</div>*/}
                             {/*</div>*/}
                             <hr/>
+                            {admin && pathname.startsWith("/dash") &&
+                                <a href={'/admin'} className={styles.Item}>
+                                    <span className={`material-icon ${styles.icon}`}> admin_panel_settings</span>
+                                    <div className={styles.Name}>管理員面板</div>
+                                </a>}
+                            {pathname.startsWith("/admin") &&
+                                <a href={'/dash'} className={styles.Item}>
+                                    <span className={`material-icon ${styles.icon}`}> admin_panel_settings</span>
+                                    <div className={styles.Name}>控制面板</div>
+                                </a>}
                             <a href={'/auth/logout'} className={styles.Item}>
                                 <span className={`material-icon ${styles.icon}`}> logout</span>
                                 <div className={styles.Name}>登出</div>

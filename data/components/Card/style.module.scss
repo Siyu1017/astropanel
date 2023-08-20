@@ -1,0 +1,7 @@
+.Card {
+  position: relative;
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(var(--blur));
+  background-color: rgba(var(--bg-componets), .5);
+  overflow: hidden;
+}
