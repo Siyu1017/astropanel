@@ -1,0 +1,22 @@
+.Title {
+  font-size: var(--title-size);
+  margin-bottom: 1rem;
+}
+
+.PanelInfo {
+  .Card {
+    padding: 1rem;
+
+    .Title {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.Users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: .2rem;
+}

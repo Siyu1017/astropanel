@@ -1,0 +1,20 @@
+.Title {
+  font-size: var(--title-size);
+  margin-bottom: 1rem;
+}
+
+.SubTitle {
+  font-size: var(--sub-title-size);
+  margin-bottom: 1rem;
+
+  .SubSubtitle {
+
+  }
+}
+
+.Buttons {
+  display: flex;
+  gap: .2rem;
+  flex-direction: column;
+  width: 100%;
+}
