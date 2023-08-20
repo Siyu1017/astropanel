@@ -17,6 +17,9 @@ const discord = {
     'redirect_uri': "http://localhost:3000/auth/callback"
 }
 
+// const admins = []
+const admins = ["881312396784840744"]
+
 const nodes = [
     {id: 1, name: 'node1'},
     {id: 2, name: 'node2'},
@@ -34,10 +37,6 @@ const default_limit = {
     "memories": 4096,
     "disk": 5120
 }
-
-const admins = [
-    "881312396784840744"
-]
 /////////////////////////////////
 
 export {
